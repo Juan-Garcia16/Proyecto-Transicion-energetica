@@ -436,6 +436,92 @@
       margin-right: 0;
     }
   }
+ /* -------------el css que compartio el men*/
+
+ .Calculo{
+  background: #0d0e26;
+  width: 90%;
+  max-width: 2000px;
+  margin: auto;
+  padding: 40px 65px;
+
+ }
+
+
+h1, h2 {
+  /* Estilos para encabezados de nivel 1 y 2 */
+  margin: 0.5rem 0;
+  /* Define un margen vertical de 0.5 rem y elimina márgenes horizontales */
+}
+
+#formulario, #lista-consumo, #resultados {
+  /* Estilos compartidos por las secciones identificadas por estos IDs */
+  margin-bottom: 2rem;
+  /* Agrega un margen inferior de 2 rem */
+  padding: 1rem;
+  /* Aplica un relleno de 1 rem en todos los lados */
+  border: 1px solid #ccc;
+  /* Agrega un borde de 1 px con un color gris claro */
+  border-radius: 8px;
+  /* Redondea las esquinas del borde con un radio de 8 px */
+  background-color: #fff;
+  /* Define el color de fondo como blanco */
+}
+label, select, input, button {
+  /* Estilos aplicados a etiquetas, menús desplegables, campos de entrada y botones */
+  display: block;
+  /* Cambia la visualización a bloque para que cada elemento ocupe una línea */
+  margin: 0.5rem 0;
+  /* Aplica un margen vertical de 0.5 rem */
+}
+
+button {
+  /* Estilos para botones */
+  padding: 0.5rem 1rem;
+  /* Agrega un relleno de 0.5 rem arriba/abajo y 1 rem a los lados */
+  background-color: #0066cc;
+  /* Define el color de fondo del botón como azul */
+  color: white;
+  /* Define el color del texto como blanco */
+  border: none;
+  /* Elimina el borde predeterminado */
+  border-radius: 4px;
+  /* Redondea las esquinas del botón */
+  cursor: pointer;
+  /* Cambia el cursor a puntero al pasar sobre el botón */
+}
+
+button:hover {
+  /* Estilos cuando el cursor pasa sobre un botón */
+  background-color: #004c99;
+  /* Cambia el color de fondo a un azul más oscuro */
+}
+
+canvas {
+  /* Estilos para elementos de lienzo (gráficos) */
+  max-width: 100%;
+  /* Limita el ancho máximo al 100% del contenedor */
+  margin: 2rem 0;
+  /* Agrega márgenes verticales de 2 rem */
+}
+
+ul {
+  /* Estilos para listas desordenadas */
+  list-style: none;
+  /* Elimina los indicadores predeterminados de la lista */
+  padding: 0;
+  /* Elimina el relleno predeterminado */
+}
+
+li {
+  /* Estilos para los elementos de lista */
+  margin: 0.5rem 0;
+  /* Agrega un margen vertical de 0.5 rem */
+  border-bottom: 1px solid #ddd;
+  /* Agrega una línea divisoria gris claro en la parte inferior */
+  padding-bottom: 0.5rem;
+  /* Agrega un relleno inferior de 0.5 rem */
+}
 
 
   /*--------------------------*/

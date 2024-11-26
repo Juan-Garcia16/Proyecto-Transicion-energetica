@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- Indica que el documento es HTML5 -->
+
+<html lang="es">
+<!-- Etiqueta principal que indica el inicio de un documento HTML. 
+"lang" especifica el idioma del contenido, en este caso español ("es"). -->
+
+<head>
+    <!-- Contenedor de metadatos del documento. No se renderizan directamente en la página. -->
+
+    <meta charset="UTF-8">
+    <!-- Define el conjunto de caracteres utilizado. "UTF-8" permite usar casi todos los caracteres y símbolos. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Configura la ventana gráfica para dispositivos móviles. 
+    "width=device-width" ajusta el ancho al ancho del dispositivo.
+    "initial-scale=1.0" establece el nivel de zoom inicial. -->
+
+    <title>Calculadora de Consumo Energético</title>
+    <!-- Título de la página que aparece en la pestaña del navegador. -->
+
+    <link rel="stylesheet" href="./estilos.css">
+    <!-- Enlace a una hoja de estilos externa. "rel" indica que es un "stylesheet".
+    "href" especifica la ubicación del archivo CSS. -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Carga una librería externa (Chart.js) desde una CDN para crear gráficos interactivos. -->
+</head>
+
+<body>
+    <!-- Contenedor principal de los elementos visibles de la página. -->
+
+    <header>
+        <!-- Contiene información introductoria o de encabezado para la página. -->
+        <h1>Calculadora de Consumo Energético</h1>
+        <!-- Encabezado principal de nivel 1. Proporciona el título visible de la página. -->
+    </header>
+
+    <main>
+        <!-- Contenedor principal del contenido de la página. -->
+
+        <section id="formulario">
+            <!-- Sección de la página para el formulario. Tiene un atributo "id" único llamado "formulario". -->
+
+            <h2>Agregar Electrodoméstico</h2>
+            <!-- Encabezado de nivel 2 que introduce esta sección. -->
+
+            <label for="electrodomestico">Electrodoméstico:</label>
+            <!-- Etiqueta que describe el propósito del siguiente elemento (el selector). 
+            "for" asocia la etiqueta con el elemento cuyo "id" coincide. -->
+
+            <select id="electrodomestico">
+                <!-- Menú desplegable que permite seleccionar un electrodoméstico. "id" lo identifica. -->
+                <option value="televisor">Televisor</option>
+                <!-- Opción del selector. "value" define el valor que se envía al seleccionar esta opción. -->
+                <option value="refrigerador">Refrigerador</option>
+                <option value="microondas">Microondas</option>
+                <option value="lavadora">Lavadora</option>
+                <option value="bombilla">Bombilla</option>
+                <option value="computadora">Computadora</option>
+                <option value="aire_acondicionado">Aire Acondicionado</option>
+                <!-- Más opciones disponibles para selección. -->
+            </select>
+
+            <label for="cantidad">Cantidad:</label>
+            <!-- Etiqueta para el campo de entrada de cantidad. -->
+            <input type="number" id="cantidad" min="1" value="1">
+            <!-- Campo de entrada numérica. 
+            "type" especifica que solo se aceptan números. 
+            "id" lo identifica. 
+            "min" establece el valor mínimo permitido. 
+            "value" define el valor inicial. -->
+
+            <label for="horas">Horas de uso diario:</label>
+            <input type="number" id="horas" min="0" value="0">
+            <!-- Campo de entrada para el número de horas. -->
+
+            <label for="dias-semana">Días de uso semanal:</label>
+            <input type="number" id="dias-semana" min="1" max="7" value="7">
+            <!-- Campo de entrada para días. "max" establece el valor máximo permitido. -->
+
+            <label for="costo-kwh">Costo por kWh (en tu factura):</label>
+            <input type="number" id="costo-kwh" min="0.01" step="0.01" value="0.50">
+            <!-- Campo de entrada para el costo de electricidad. "step" define el incremento entre valores. -->
+
+            <button id="agregar-electrodomestico">Agregar Electrodoméstico</button>
+            <!-- Botón que permite agregar un electrodoméstico al listado. 
+            "id" lo identifica. -->
+        </section>
+
+        <section id="lista-consumo">
+            <!-- Sección para mostrar la lista de electrodomésticos agregados. -->
+
+            <h2>Electrodomésticos Agregados</h2>
+            <!-- Encabezado para esta sección. -->
+
+            <ul id="lista"></ul>
+            <!-- Lista desordenada que contendrá los electrodomésticos agregados. 
+            "id" la identifica. -->
+        </section>
+
+        <section id="resultados">
+            <!-- Sección para mostrar los resultados del cálculo. -->
+
+            <h2>Resultados</h2>
+            <!-- Encabezado para esta sección. -->
+
+            <button id="generar-grafico">Generar Consumo Total</button>
+            <!-- Botón para generar gráficos del consumo total. -->
+
+            <div id="totales"></div>
+            <!-- Contenedor para mostrar resultados textuales. -->
+
+            <canvas id="graficoConsumo"></canvas>
+            <!-- Elemento para renderizar un gráfico circular. "id" lo identifica. -->
+
+            <canvas id="graficoBarras"></canvas>
+            <!-- Elemento para renderizar un gráfico de barras. -->
+        </section>
+    </main>
+
+    <script src="./scripts.js"></script>
+    <!-- Archivo de script externo que contiene la lógica de la página. -->
+</body>
+</html>
