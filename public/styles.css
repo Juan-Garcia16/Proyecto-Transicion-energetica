@@ -369,6 +369,16 @@
     margin: auto;
   }
 
+  @media (max-width: 600px) {
+    .energia {
+      padding: 40px 30px;
+    }
+    
+    .header__energia {
+      padding: 10px 30px;
+    }
+  }
+
   .energia__contenido {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -436,16 +446,24 @@
       margin-right: 0;
     }
   }
- /* -------------el css que compartio el men*/
+/* -------------el css que compartio el men*/
 
- .Calculo{
+  #titulo__formulario {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 35px;
+  }
+
+  #Calculo{
   background: #0d0e26;
   width: 90%;
   max-width: 2000px;
   margin: auto;
   padding: 40px 65px;
 
- }
+  }
 
 
 h1, h2 {
@@ -456,10 +474,16 @@ h1, h2 {
 
 #formulario, #lista-consumo, #resultados {
   /* Estilos compartidos por las secciones identificadas por estos IDs */
+  
+  margin: auto;
+
+  width: 70%;
+
   margin-bottom: 2rem;
   /* Agrega un margen inferior de 2 rem */
   padding: 1rem;
   /* Aplica un relleno de 1 rem en todos los lados */
+
   border: 1px solid #ccc;
   /* Agrega un borde de 1 px con un color gris claro */
   border-radius: 8px;
@@ -467,6 +491,24 @@ h1, h2 {
   background-color: #fff;
   /* Define el color de fondo como blanco */
 }
+
+@media (max-width: 600px) {
+  /* Estilos para pantallas con un ancho máximo de 600 px */
+  #formulario, #lista-consumo, #resultados {
+    /* Aplica un ancho del 90% en lugar del 70% */
+    width: 100%;
+  
+  }
+
+  #Calculo{
+    padding: 40px 30px;
+  }
+
+  #titulo__formulario {
+    font-size: 25px;
+  }
+}
+
 label, select, input, button {
   /* Estilos aplicados a etiquetas, menús desplegables, campos de entrada y botones */
   display: block;
