@@ -1,5 +1,20 @@
+let mychart1 ;
+let mychart2 ;
 // Definición de los electrodomésticos y su consumo en Watts
 const electrodomesticos = {
+    Cardadoras : 30000,
+    Hilanderas: 125000,
+    Bobinadoras : 10000,
+    Telares: 22500,
+    MaquinaTricotar : 15000 ,
+    TejidoRectilinasCirculares : 35000,
+    Estampado : 12.500,
+    Tintura :  75000,
+    Planchado : 6500,
+    Corte : 10000,
+    Costura: 1250,
+    bordado: 3000,
+//------------------------------------------------------------------------------
     televisor: 100,              // Televisor consume 100 Watts.
     refrigerador: 150,           // Refrigerador consume 150 Watts.
     microondas: 800,             // Microondas consume 800 Watts.
@@ -24,16 +39,16 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
     */
     const electrodomestico = document.getElementById('electrodomestico').value;
     /* Obtiene el valor seleccionado del elemento <select> con id 'electrodomestico'. */
-    const cantidad = Number(document.getElementById('cantidad').value);
+    let cantidad = Number(document.getElementById('cantidad').value);
     /* Convierte el valor del campo <input> 'cantidad' a número. */
-    const horas = Number(document.getElementById('horas').value);
+    let horas = Number(document.getElementById('horas').value);
     /* Convierte el valor del campo <input> 'horas' a número. */
-    const diasSemana = Number(document.getElementById('dias-semana').value);
+    let diasSemana = Number(document.getElementById('dias-semana').value);
     /* Convierte el valor del campo <input> 'dias-semana' a número. */
-    const costoKwh = Number(document.getElementById('costo-kwh').value);
+    let costoKwh = Number(document.getElementById('costo-kwh').value);
     /* Convierte el valor del campo <input> 'costo-kwh' a número. */
 
-    if (!cantidad || !diasSemana || !costoKwh) {
+    if (!cantidad || !diasSemana || !costoKwh) { //validacion de campos
         /* 
            Valida que los campos requeridos no estén vacíos ni sean cero.
            Si alguno es inválido, muestra un mensaje de alerta.
@@ -42,18 +57,22 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
         return; // Sale de la función si hay campos inválidos.
     }
 
-    const potencia = electrodomesticos[electrodomestico];
+    const potencia = electrodomesticos[electrodomestico]; //  va al arreglo y mira cual es su comsumo en watts
     /* Obtiene la potencia en Watts del electrodoméstico seleccionado. */
-    const consumoDiario = (potencia * cantidad * horas) / 1000;
+    const consumoDiario = (potencia * cantidad * horas) ;
+    console.log("consumo diario"+consumoDiario);
     /* 
        Calcula el consumo diario en kWh:
        (Potencia en Watts * Cantidad de electrodomésticos * Horas de uso diario) / 1000.
     */
     const consumoSemanal = consumoDiario * diasSemana;
+    console.log("consumo semanal"+consumoSemanal);
     /* Calcula el consumo semanal en kWh (consumo diario * días de uso semanal). */
     const consumoMensual = consumoSemanal * 4.33;
+    console.log("consumo mensual"+consumoMensual);
     /* Calcula el consumo mensual aproximado (4.33 semanas por mes). */
     const consumoAnual = consumoMensual * 12;
+    console.log("consumo anual"+consumoAnual);
     /* Calcula el consumo anual en kWh (12 meses por año). */
 
     listaElectrodomesticos.push({
@@ -78,10 +97,23 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
     /* Define el contenido del elemento de lista con detalles del electrodoméstico. */
     lista.appendChild(li);
     /* Añade el nuevo elemento <li> al <ul> en el DOM. */
+
+    cantidad = ''
+    horas = ''
+    diasSemana = ''
+    costoKwh  = ''
+
 });
 
 // Generar gráficos
 document.getElementById('generar-grafico').addEventListener('click', () => {
+    if(mychart1 && mychart2){
+
+        mychart1.destroy()
+        mychart2.destroy()
+    }
+  
+    console.log(mychart1);
     /* 
        Agrega un evento 'click' al botón con id 'generar-grafico'.
        Este evento genera los gráficos y muestra los resultados.
@@ -103,8 +135,11 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
 
     // Gráfico de torta
     const ctxTorta = document.getElementById('graficoConsumo').getContext('2d');
+
+    
+    
     /* Obtiene el contexto 2D del lienzo para el gráfico de torta. */
-    new Chart(ctxTorta, {
+    mychart1 = new Chart(ctxTorta, {
         type: 'pie', // Define el tipo de gráfico como torta (pie chart).
         data: {
             labels: etiquetas, // Etiquetas para las secciones del gráfico.
@@ -117,10 +152,11 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
         },
     });
 
+   
     // Gráfico de barras
     const ctxBarras = document.getElementById('graficoBarras').getContext('2d');
     /* Obtiene el contexto 2D del lienzo para el gráfico de barras. */
-    new Chart(ctxBarras, {
+    mychart2 =  new Chart(ctxBarras, {
         type: 'bar', // Define el tipo de gráfico como barras.
         data: {
             labels: etiquetas, // Etiquetas para las barras.
@@ -132,6 +168,7 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
         },
     });
 
+    
     // Mostrar resultados
     document.getElementById('totales').innerHTML = `
         Consumo anual total: ${consumoTotalAnual.toFixed(2)} kWh<br>
@@ -142,4 +179,5 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
        - Consumo anual total.
        - Ahorro estimado con paneles solares.
     */
+       
 });
