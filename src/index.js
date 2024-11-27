@@ -1,11 +1,8 @@
 console.log("que se dice");
 import './AnimarGaleria.js' 
-import './MostrarTrabajo.js'
 import './slider.js' 
 import './scripts.js'
- /* import './arreglo.js' */
- import {AnimarTexto}  from './AnimarTexto.js' 
-/* import './MostrarFooter.js' */
+import {AnimarTexto}  from './AnimarTexto.js' 
 
 
 window.addEventListener("load",async(e)=>{
