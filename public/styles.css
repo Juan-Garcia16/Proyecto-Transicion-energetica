@@ -200,36 +200,8 @@
     transform: translateY(-170px);
     opacity: 1;
   }
-  .trabajos {
-    background: #0d0e26;
-    width: 90%;
-    max-width: 2000px;
-    margin: auto;
-    padding: 40px 65px;
-  }
-  .trabajos__header {
-    text-align: center;
-    color: #fff;
-    margin-bottom: 40px;
-  }
-  .trabajos__titulo {
-    margin-bottom: 10px;
-  }
-  .trabajos__trabajo {
-    opacity: 0;
-    transition: 0.5s ease all;
-  }
-  .trabajos__trabajo--visible {
-    opacity: 1;
-  }
-  .trabajos__imagenes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-  }
-  .trabajos__imagen {
-    width: 100%;
-  }
+
+  
   .comentarios {
     background: #f1f1f1;
     padding: 40px 65px;
