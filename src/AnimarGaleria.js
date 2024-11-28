@@ -1,12 +1,14 @@
-const Galeria = document.getElementById("trabajos") //accedemos a la galeria 
 
+const Galeria = document.getElementById("nav__energias") //accedemos a la galeria 
+console.log("acedemos a nav__energias");
 
 const Observador = new IntersectionObserver((entries)=>{ ///creamos practicamente una funcion observador el cual esta contiene ciertos metodos 
  
     if(entries[0].isIntersecting){ // el metodo entra pero a este funcion con otros metodos el cual se encuentrar en un array , interscting nos avisa de cuando cumple las opciones de abajo
 
-        const trabajos = Galeria.querySelectorAll(".trabajos__imagenes a") // traemos todos los trabajos para activarles su css
+        const trabajos = Galeria.querySelectorAll(".nav__item") // traemos todos los trabajos para activarles su css
 
+        console.log(trabajos);
         trabajos.forEach((trabajo,index)=>{ //recorremos los trabajos y le aplicamos un pequeño efecto con setTimeou() para activar el efecto de 1 en 1 
 
             setTimeout(()=>{
@@ -15,9 +17,11 @@ const Observador = new IntersectionObserver((entries)=>{ ///creamos practicament
 
             } , index * 100)
         })
+
+      
     }
 
-    const trabajos = Galeria.querySelectorAll(".trabajos__imagenes a")
+    const trabajos = Galeria.querySelectorAll(".nav__imagenes a")
 
     trabajos.forEach((elemenots)=>{ /// un prombrela que tenemos es que si no dejamos de observar los elementos despues de hacer todod esto se nos va a ciclar 
             
@@ -28,6 +32,7 @@ const Observador = new IntersectionObserver((entries)=>{ ///creamos practicament
         console.log(entries);
     })
 
+    
     
 },{ // opciones para cuando entre en visibilidad el objeto
     rootMargin : '0px', // sirven para aumentar o reducior el cuadro delimitador

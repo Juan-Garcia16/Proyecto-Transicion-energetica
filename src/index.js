@@ -1,7 +1,7 @@
-console.log("que se dice");
-/* import './AnimarGaleria.js'  */
+import './AnimarGaleria.js' 
 import './slider.js' 
 import './scripts.js'
+import './cookies.js'
 import {AnimarTexto}  from './AnimarTexto.js' 
 
 

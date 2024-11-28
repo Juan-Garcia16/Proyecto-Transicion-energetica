@@ -2,18 +2,18 @@ let mychart1 ;
 let mychart2 ;
 // Definición de los electrodomésticos y su consumo en Watts
 const electrodomesticos = {
-    Cardadoras : 30000,
-    Hilanderas: 125000,
-    Bobinadoras : 10000,
-    Telares: 22500,
-    MaquinaTricotar : 15000 ,
-    TejidoRectilinasCirculares : 35000,
-    Estampado : 12.500,
-    Tintura :  75000,
-    Planchado : 6500,
-    Corte : 10000,
-    Costura: 1250,
-    bordado: 3000,
+    Cardadoras : 30, //30000,
+    Hilanderas: 125 ,//125000,
+    Bobinadoras : 10 ,//10000,
+    Telares: 22.5,//22500,
+    MaquinaTricotar :15 ,//15000 ,
+    TejidoRectilinasCirculares :35, //35000,
+    Estampado :12.5, //12.500,
+    Tintura :  75 ,//75000,
+    Planchado : 6.5, //6500,
+    Corte : 10,//10000,
+    Costura: 1.25, //1250,
+    bordado: 3,//3000,
 //------------------------------------------------------------------------------
     televisor: 100,              // Televisor consume 100 Watts.
     refrigerador: 150,           // Refrigerador consume 150 Watts.
@@ -59,7 +59,7 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
 
     const potencia = electrodomesticos[electrodomestico]; //  va al arreglo y mira cual es su comsumo en watts
     /* Obtiene la potencia en Watts del electrodoméstico seleccionado. */
-    const consumoDiario = (potencia * cantidad * horas) ;
+    const consumoDiario = (potencia * cantidad * horas) /1000;
     console.log("consumo diario"+consumoDiario);
     /* 
        Calcula el consumo diario en kWh:
@@ -93,7 +93,7 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
     /* Selecciona el elemento <ul> donde se listarán los electrodomésticos. */
     const li = document.createElement('li');
     /* Crea un nuevo elemento de lista (<li>). */
-    li.textContent = `${cantidad} x ${electrodomestico} | Diario: ${consumoDiario.toFixed(2)} kWh | Semanal: ${diasSemana} días`;
+    li.textContent = `${cantidad} x ${electrodomestico} | Diario: ${consumoDiario.toFixed(2)} MWh | Semanal: ${diasSemana} días`;
     /* Define el contenido del elemento de lista con detalles del electrodoméstico. */
     lista.appendChild(li);
     /* Añade el nuevo elemento <li> al <ul> en el DOM. */
@@ -144,7 +144,7 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
         data: {
             labels: etiquetas, // Etiquetas para las secciones del gráfico.
             datasets: [{
-                label: 'Consumo Anual (kWh)', // Etiqueta del conjunto de datos.
+                label: 'Consumo Anual (MWh)', // Etiqueta del conjunto de datos.
                 data: datosConsumo, // Datos a graficar (consumo anual).
                 backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40', '#D3D3D3'],
                 /* Colores asignados a cada sección del gráfico. */
@@ -161,8 +161,8 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
         data: {
             labels: etiquetas, // Etiquetas para las barras.
             datasets: [
-                { label: 'Consumo Anual Normal (kWh)', data: datosConsumo, backgroundColor: '#36A2EB' },
-                { label: 'Ahorro con Paneles Solares (kWh)', data: datosAhorro, backgroundColor: '#FFCE56' },
+                { label: 'Consumo Anual Normal (MWh)', data: datosConsumo, backgroundColor: '#36A2EB' },
+                { label: 'Ahorro con Paneles Solares (MWh)', data: datosAhorro, backgroundColor: '#FFCE56' },
             ],
             /* Dos conjuntos de datos: consumo normal y ahorro con paneles solares. */
         },
@@ -171,8 +171,8 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
     
     // Mostrar resultados
     document.getElementById('totales').innerHTML = `
-        Consumo anual total: ${consumoTotalAnual.toFixed(2)} kWh<br>
-        Ahorro estimado con paneles solares: ${ahorroPanelesSolares.toFixed(2)} kWh.<br>
+        Consumo anual total: ${consumoTotalAnual.toFixed(2)} MWh<br>
+        Ahorro estimado con paneles solares: ${ahorroPanelesSolares.toFixed(2)} MWh.<br>
     `;
     /* 
        Inserta en el elemento con id 'totales' los resultados calculados:
