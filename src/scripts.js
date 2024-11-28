@@ -45,10 +45,10 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
     /* Convierte el valor del campo <input> 'horas' a número. */
     let diasSemana = Number(document.getElementById('dias-semana').value);
     /* Convierte el valor del campo <input> 'dias-semana' a número. */
-    let costoKwh = Number(document.getElementById('costo-kwh').value);
+   /*  let costoKwh = Number(document.getElementById('costo-kwh').value); */
     /* Convierte el valor del campo <input> 'costo-kwh' a número. */
 
-    if (!cantidad || !diasSemana || !costoKwh) { //validacion de campos
+    if (!cantidad || !diasSemana ) { //validacion de campos
         /* 
            Valida que los campos requeridos no estén vacíos ni sean cero.
            Si alguno es inválido, muestra un mensaje de alerta.
@@ -101,7 +101,7 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
     cantidad = ''
     horas = ''
     diasSemana = ''
-    costoKwh  = ''
+    /* costoKwh  = '' */
 
 });
 
