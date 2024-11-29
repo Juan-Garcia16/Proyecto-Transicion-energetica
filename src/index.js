@@ -1,7 +1,7 @@
 import './AnimarGaleria.js' 
 import './slider.js' 
 import './scripts.js'
-import './cookies.js'
+/* import './cookies.js' */
 import {AnimarTexto}  from './AnimarTexto.js' 
 
 

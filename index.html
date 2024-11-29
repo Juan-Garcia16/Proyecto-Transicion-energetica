@@ -228,7 +228,7 @@
 
 
 		<div class="header__energia header__hidroelectrica" id="header__hidroelectrica">
-			<h2 class="titulo__energias solar">Energia Hidroeléctrica</h2>
+			<h2 class="titulo__energias solar">Energía  Hidroeléctrica</h2>
 		</div>
 		<section class="energia">
 			<div class="energia__contenido">
@@ -420,7 +420,21 @@
 				<!-- Lista desordenada que contendrá los electrodomésticos agregados. 
 				"id" la identifica. -->
 			</section>
-	
+
+			<section id="ConsumoPaneles">
+				<h2>aproximacion en paneles</h2>
+				
+				<label for="Eficiencia">Eficienca del panel: esta varia en los watts uno bueno , 690 watts</label> <!-- pueden variar en precio , entre mas caras mas watts -->
+				<input type="number" id="Eficiencia" min="1" value="690">
+				<label for="Npaneles">Numero de paneles:</label>
+				<input type="number" id="Npaneles" min="1" value="1">
+				<label for="HorasSol">Horas sol: se puede dar una extimacion por la radiacion solar del lugar ,en Medellin se estima de 5.5 horas de sol directo al dia </label>   <!-- para la estimacion de horas sol se busca por ubicacion: radiaacion solar ubicacio -->
+				<input type="number" id="HorasSol" min="1" value="5.5">
+
+				<button id="CalculoPanales">Agrega Eficiencia</button>
+				<p id="EficiencaEnpaneles"></p>
+			</section>
+
 			<section id="resultados">
 				<!-- Sección para mostrar los resultados del cálculo. -->
 	
