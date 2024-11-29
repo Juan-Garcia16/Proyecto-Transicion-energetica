@@ -3,6 +3,7 @@ import './slider.js'
 import './scripts.js'
 /* import './cookies.js' */
 import {AnimarTexto}  from './AnimarTexto.js' 
+import './fondos.js'
 
 
 window.addEventListener("load",async(e)=>{
