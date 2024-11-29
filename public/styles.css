@@ -7,11 +7,6 @@
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
     background: #d9d9d9;
-    /*background-image: url('../img/f1.jpg'), url('../img/f2.jpg'), url('../img/f3.jpg');
-    background-size: cover, cover, cover;
-    background-position: center, center, center;
-    background-repeat: no-repeat, no-repeat, no-repeat;
-    */
   }
   a {
     text-decoration: none;
@@ -201,6 +196,7 @@
     opacity: 1;
   }
   /*--------------------------*/
+
   #nav__energias {
     background: #0d0e26;
     padding: 20px 65px;
@@ -208,30 +204,50 @@
     max-width: 2000px;
     margin: auto;
   }
-
+  
   #titulo__nav {
-    padding: 10px 0px;
+    padding: 10px 0;
     font-size: 24px;
     font-weight: 700;
     color: #fff;
     text-align: center;
   }
-  .nav__item{
-    opacity: 0;
-    transition: 0.5s ease all;
-  }
+  
   .nav__imagenes {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    transition: transform 0.3s;
+    transition: transform 0.3s, opacity 0.5s ease;
   }
   
   .nav__imagenes:hover {
     transform: scale(1.05);
+    opacity: 0.5;
   }
   
+  .nav__texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2vw;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  
+  #contenedor__nav__energias a {
+    position: relative;
+  }
+  
+  #contenedor__nav__energias a:hover .nav__texto {
+    opacity: 1;
+  }
+
   #contenedor__nav__energias {
     margin: auto;
     width: 90%;
@@ -245,36 +261,33 @@
       "biomasa solar eolica"
       "biomasa hidroelectrica geotermica";
   }
-  .trabajos__trabajo--visible {
-    opacity: 1;
-  }
-  #img__biomasa {
+  
+  #contenedor__nav__energias a:nth-child(1) {
     grid-area: biomasa;
   }
   
-  #img__solar {
+  #contenedor__nav__energias a:nth-child(2) {
     grid-area: solar;
   }
   
-  #img__eolica {
+  #contenedor__nav__energias a:nth-child(3) {
     grid-area: eolica;
   }
   
-  #img__hidroelectrica {
+  #contenedor__nav__energias a:nth-child(4) {
     grid-area: hidroelectrica;
   }
   
-  #img__geotermica {
+  #contenedor__nav__energias a:nth-child(5) {
     grid-area: geotermica;
   }
   
   /* Media query para pantallas pequeñas */
   @media (max-width: 600px) {
-
     #nav__energias {
       padding: 20px 30px;
     }
-
+  
     #contenedor__nav__energias {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(5, 1fr);
@@ -286,12 +299,29 @@
         "geotermica";
     }
   
+    #contenedor__nav__energias a {
+      display: block;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%; /* Esto hace que la altura sea igual al ancho, creando un cuadrado */
+      position: relative;
+    }
+  
     .nav__imagenes {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
       transition: transform 0.3s;
+      opacity: 0.8;
+    }
+  
+    .nav__texto {
+      opacity: 1;
+      font-size: 1.5rem; /* Ajusta el tamaño del texto para pantallas pequeñas */
     }
   }
   /*--------------------------*/
