@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       eolica: '#E0A18B', // Color suave para energía eólica
       hidroelectrica: '#C8CFE3', // Color suave para energía hidroeléctrica
       biomasa: '#C5DFC6', // Color suave para energía de biomasa
-      geotermica: '#808080' // Color suave para energía geotérmica
+      geotermica: '#A0A0A0' // Color suave para energía geotérmica
     };
   
     function changeBackgroundColor() {
