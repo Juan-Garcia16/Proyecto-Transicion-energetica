@@ -1,5 +1,6 @@
 let mychart1 ;
 let mychart2 ;
+let  EficiencaPaneles = "";
 // Definición de los electrodomésticos y su consumo en Watts
 const electrodomesticos = {
     Cardadoras : 30, //30000,
@@ -105,6 +106,40 @@ document.getElementById('agregar-electrodomestico').addEventListener('click', ()
 
 });
 
+//calculo eficienca panles
+
+document.getElementById("ConsumoPaneles").addEventListener("click",(e)=>{
+
+    e.preventDefault()
+
+    const boton = e.target.tagName
+
+    if(boton === "BUTTON"){
+        
+        let EnergiaDiaria = "";
+        let EnergiaMensual = "";
+        let EficienciaTotalPaneles = "";
+        let EnergiaAnual = "";
+        const Eficiencia = Number(document.getElementById("Eficiencia").value)
+        const Npanes = Number(document.getElementById("Npaneles").value)
+        const HorasSol = Number(document.getElementById("HorasSol").value)
+        EficiencaPaneles = "";
+        
+        EficienciaTotalPaneles = Eficiencia * Npanes 
+        EnergiaDiaria = EficienciaTotalPaneles * HorasSol /1000
+        EnergiaMensual = (EnergiaDiaria * 30 / 1000).toFixed(2)
+        EnergiaAnual = (EnergiaDiaria * 365 / 1000).toFixed(2)
+    
+        EficiencaPaneles = EnergiaAnual
+    
+         document.getElementById("EficiencaEnpaneles").innerText = ` Eficiencia en paneles estimados en MW al año${EficiencaPaneles} MW`
+
+    }
+   
+
+})
+
+
 // Generar gráficos
 document.getElementById('generar-grafico').addEventListener('click', () => {
     if(mychart1 && mychart2){
@@ -113,7 +148,7 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
         mychart2.destroy()
     }
   
-    console.log(mychart1);
+    /* console.log(mychart1); */
     /* 
        Agrega un evento 'click' al botón con id 'generar-grafico'.
        Este evento genera los gráficos y muestra los resultados.
@@ -123,7 +158,10 @@ document.getElementById('generar-grafico').addEventListener('click', () => {
        Calcula el consumo total anual sumando el consumo anual de cada electrodoméstico 
        en 'listaElectrodomesticos' usando el método 'reduce'.
     */
-    const ahorroPanelesSolares = consumoTotalAnual * 0.8;
+   console.log(EficiencaPaneles);
+    const PorcentajePaneles = parseFloat(EficiencaPaneles)* 100 / consumoTotalAnual /100;  
+    console.log(PorcentajePaneles.toFixed(2));
+    const ahorroPanelesSolares = consumoTotalAnual * PorcentajePaneles;
     /* Calcula el ahorro estimado con paneles solares (80% del consumo total). */
 
     const etiquetas = listaElectrodomesticos.map(e => e.nombre).concat('Total');

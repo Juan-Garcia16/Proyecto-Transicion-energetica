@@ -15,7 +15,7 @@ const Observador = new IntersectionObserver((entries)=>{ ///creamos practicament
 
                 trabajo.classList.add("trabajos__trabajo--visible")
 
-            } , index * 100)
+            } , index * 300)
         })
 
       

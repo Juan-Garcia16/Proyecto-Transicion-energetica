@@ -537,7 +537,7 @@ h1, h2 {
   /* Define un margen vertical de 0.5 rem y elimina márgenes horizontales */
 }
 
-#formulario, #lista-consumo, #resultados {
+#formulario, #lista-consumo, #resultados ,#ConsumoPaneles {
   /* Estilos compartidos por las secciones identificadas por estos IDs */
   
   margin: auto;
