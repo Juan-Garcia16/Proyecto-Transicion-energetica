@@ -11,7 +11,7 @@ const AnimarTexto = (ParametroAnimar)=>{ // funcion para dar animacion segun los
         Span.append(Texto[i])    // le añadimos la letra al span
         ParametroAnimar.append(Span) // el span se lo añadimos al elemento donde lo queremos animar
 
-        },i * 100) // es de recordar que el ciclo for se realiza istantaneo pero las tareaas asincronas de setTiomeot esperan en otra pila para su ejecucion, el for no para 
+        },i * 50) // es de recordar que el ciclo for se realiza istantaneo pero las tareaas asincronas de setTiomeot esperan en otra pila para su ejecucion, el for no para 
         
     }
 
@@ -27,11 +27,11 @@ const AnimarTexto = (ParametroAnimar)=>{ // funcion para dar animacion segun los
         Cursor.classList.add("hero__cursor--active") // si es el ultimo activamos la animacion de cursor parpadenado
        }
 
-    },Texto.length * 100)
+    },Texto.length * 50)
 
     return new Promise((resolve)=>{ // retornamos una promesa para poder hacer uso del await que utilizamos en el index ademas de que nos sirve para su retroceso
 
-            setTimeout(resolve ,Texto.length * 100); // le damos este tiempo por : la ultima letra que se agrega va a tener este timempo , por que para entonces las demas funciones ya se abran ejecutado 
+            setTimeout(resolve ,Texto.length * 50); // le damos este tiempo por : la ultima letra que se agrega va a tener este timempo , por que para entonces las demas funciones ya se abran ejecutado 
             // en un menor intervalo de tiempo  
     })
 

@@ -14,27 +14,76 @@
   a:hover {
     text-decoration: none;
   }
+
   .header {
     width: 90%;
     max-width: 2000px;
     margin: 40px auto 0 auto;
     background: #fff;
-    padding: 40px 65px;
+    padding: 30px 65px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 20px 20px 0 0;
   }
+
+
   .header__titulo {
     font-size: 28px;
     font-weight: 700;
-    color: #000;
+    color: #0d0e26;
     margin-right: px;
   }
   .header__menu {
     display: flex;
-    gap: 50px;
+    gap: 40px;
   }
+  @media (max-width: 1100px) {
+    .header__menu {
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .header {
+      display: flex;
+      flex-direction: column;
+    }
+    .header__menu {
+      margin-top: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .header {
+      padding: 20px 30px;
+    }
+    .header__titulo {
+      font-size: 26px;
+    }
+    .header__menu a:nth-child(2) {
+      visibility: hidden; /* Oculta el texto original */
+      position: relative;
+    }
+
+
+    .header__menu {
+      font-size: 14px;
+    }
+    .header__menu a:nth-child(2)::after {
+      content: "Consumo";
+      visibility: visible;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: black; /* Ajusta el color del texto según sea necesario */
+      text-align: center;
+    }
+  }
+
   .header__link {
     font-weight: 600;
     color: #000;
@@ -43,25 +92,17 @@
     color: #255ecd;
   }
 
-  @media (max-width: 900px) {
-    .header {
-      display: flex;
-      flex-wrap: wrap;
-    }
 
-    .header__titulo {
-      text-align: center;
-      margin: auto;
-      margin-bottom: 20px;
-    }
 
-    .header__menu {
-      display: flex;
-      justify-content: center;
-    }
+  .hero__header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
-
+/*--------------------------*/
   .hero {
+    background-color: #fff;
     width: 90%;
     max-width: 2000px;
     margin: auto;
@@ -76,12 +117,16 @@
     justify-content: center;
     padding: 40px 65px;
   }
-  .hero__header {
-    position: relative;
+
+  #contenedor__titulo {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    padding-left: 65px;
+    padding-right: 65px;
   }
+
   .hero__titulo {
     font-size: 34px;
     font-weight: 700;
@@ -121,80 +166,46 @@
     height: 100%;
     width: 100%;
   }
-  .hero__resumen {
-    line-height: 24px;
-    font-size: 16px;
-    color: #8c8c8c;
-    margin-bottom: 20px;
+
+  #contenedor__imagenp {
+    background-image: url("../img/textil.jpg");
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
   }
-  .hero__redes {
-    display: flex;
-    gap: 10px;
+
+  /* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+  #contenedor__imagenp {
+    display:none;
   }
-  .hero__red {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-    border-radius: 40px;
+
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    padding-bottom: 0;
+    margin-bottom: -40;
   }
-  .hero__red--twitter {
-    background: #1da1f2;
-  }
-  .hero__red--linkedin {
-    background: #0077b5;
-  }
-  .hero__red--email {
-    background: #656565;
-  }
-  .hero__icono {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-  }
-  .hero__contenedor-foto {
-    position: relative;
-  }
-  .hero__foto {
-    vertical-align: top;
+
+  .hero__titulo {
+    font-size: 1.8rem;
     width: 100%;
   }
-  .hero__burbuja {
-    background: #000;
-    padding: 20px;
-    border-radius: 100px;
-    color: #fff;
-    position: absolute;
-    font-size: 14px;
-    font-weight: 600;
-    text-align: center;
-    user-select: none;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    bottom: -50px;
-    opacity: 0;
+
+  .hero__subtitulo, .hero__parrafo {
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: justify;
+    padding-top: 10px;
   }
-  .hero__burbuja--naranja {
-    transition: 1s ease-in-out all;
-    width: 100px;
-    background: #e49318;
-    left: -50px;
+
+  #contenedor__titulo {
+    padding: 0 30px;
+    margin-top: 0;
   }
-  .hero__burbuja--azul {
-    transition: 1s ease-in-out all 0.2s;
-    width: 200px;
-    background: #255ecd;
-    right: -50px;
-  }
-  .hero__burbuja--active-1 {
-    transform: translateY(-100px);
-    opacity: 1;
-  }
-  .hero__burbuja--active-2 {
-    transform: translateY(-170px);
-    opacity: 1;
-  }
+
+
+}
   /*--------------------------*/
 
   #nav__energias {
@@ -560,6 +571,16 @@
 
   }
 
+  #Calculo p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 100;
+    width: 70%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+
 
 h1, h2 {
   /* Estilos para encabezados de nivel 1 y 2 */
@@ -587,16 +608,68 @@ h1, h2 {
   /* Define el color de fondo como blanco */
 }
 
+
+#formulario {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+  gap: 20px; /* Espacio entre las columnas */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: auto;
+  width: 70%;
+  margin-bottom: 2rem;
+}
+
+#formulario .formulario__form {
+  padding: 1rem;
+}
+
+#formulario .formulario__imagen {
+  background-image: url("../img/imagenformulario.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  #formulario {
+    display: block; /* Cambia a bloque en pantallas pequeñas */
+  }
+
+  #formulario .formulario__imagen {
+    display: none; /* Oculta la imagen en pantallas pequeñas */
+  }
+}
+
+
+
+
+
+
+#ConsumoPaneles {
+  padding-bottom: 0;
+}
+
+#ConsumoPaneles label {
+  margin-top: 30px;
+}
 @media (max-width: 600px) {
   /* Estilos para pantallas con un ancho máximo de 600 px */
-  #formulario, #lista-consumo, #resultados {
+  #formulario, #lista-consumo, #resultados, #ConsumoPaneles {
     /* Aplica un ancho del 90% en lugar del 70% */
     width: 100%;
-  
   }
 
   #Calculo{
     padding: 40px 30px;
+  }
+
+  #Calculo p {
+    font-size: 16px;
+    width: 100%;
+    text-align: justify;
   }
 
   #titulo__formulario {
@@ -663,39 +736,81 @@ li {
 
   /*--------------------------*/
 
-  .footer__titulo {
-    margin-bottom: 10px;
-    font-size: 24px;
-  }
-  .footer__subtitulo {
-    margin-bottom: 40px;
-  }
-  .footer__redes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
-  .footer__red {
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
-    color: #fff;
-    padding: 24px;
-  }
-  .footer__red--twitter {
-    background: #1da1f2;
-  }
-  .footer__red--linkedin {
-    background: #0077b5;
-  }
-  .footer__red--email {
-    background: #656565;
-  }
-  .footer__icono {
-    width: 100%;
-    height: 100%;
-  }
+
+.footer__redes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.social-login-icons {
+  display: flex;
+  align-items: center;
+}
+.social-login-icons svg {
+  width: 40px;
+}
+
+.social-icon-1,
+.social-icon-2,
+.social-icon-3,
+.social-icon-4 {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.socialcontainer {
+  height: 50px;
+  overflow: hidden;
+}
+.social-icon-1 {
+  transition-duration: 0.4s;
+  background-color: rgb(0, 0, 0);
+}
+.socialcontainer:hover .social-icon-1 {
+  transform: translateY(-50px);
+}
+.social-icon-2 {
+  transition-duration: 0.4s;
+  background: linear-gradient(
+    72.44deg,
+    #ff7a00 11.92%,
+    #ff0169 51.56%,
+    #d300c5 85.69%
+  );
+}
+.socialcontainer:hover .social-icon-2 {
+  transform: translateY(-50px);
+}
+.social-icon-3 {
+  transition-duration: 0.4s;
+  background: #316ff6;
+}
+
+.socialcontainer:hover .social-icon-3 {
+  transform: translateY(-50px);
+}
+.social-icon-4 {
+  transition-duration: 0.4s;
+  background: linear-gradient(
+    180deg,
+    rgba(129, 34, 144, 1) 0%,
+    rgba(77, 34, 124, 1) 91%
+  );
+}
+
+.socialcontainer:hover .social-icon-4 {
+  transform: translateY(-50px);
+}
+
+
+
+/*--------------------------*/
+
   .ventana {
     display: none;
     width: 100vw;
