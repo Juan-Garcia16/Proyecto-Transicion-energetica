@@ -6,7 +6,7 @@ const Observador = new IntersectionObserver((entries)=>{ ///creamos practicament
  
     if(entries[0].isIntersecting){ // el metodo entra pero a este funcion con otros metodos el cual se encuentrar en un array , interscting nos avisa de cuando cumple las opciones de abajo
 
-        const trabajos = Galeria.querySelectorAll(".nav__item") // traemos todos los trabajos para activarles su css
+        const trabajos = Galeria.querySelectorAll("a") // traemos todos los trabajos para activarles su css
 
         console.log(trabajos);
         trabajos.forEach((trabajo,index)=>{ //recorremos los trabajos y le aplicamos un pequeño efecto con setTimeou() para activar el efecto de 1 en 1 

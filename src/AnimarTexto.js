@@ -15,7 +15,7 @@ const AnimarTexto = (ParametroAnimar)=>{ // funcion para dar animacion segun los
         
     }
 
-    setTimeout(()=>{ // esta funcion se va a ejecuatar de ultimo tenemos un pequeño espera gracias a que sabemos de cuanto es el tiempo de la ultima funcion asincrona para que se activa este funcion
+   /*  setTimeout(()=>{ // esta funcion se va a ejecuatar de ultimo tenemos un pequeño espera gracias a que sabemos de cuanto es el tiempo de la ultima funcion asincrona para que se activa este funcion
 
        const Cursores =[...ParametroAnimar.closest(".hero__header").querySelectorAll(".hero__cursor")] // obtenemos todos los cursores en un array
        const index = Cursores.indexOf(Cursor) // buscamos el index del cursor alctual
@@ -27,7 +27,7 @@ const AnimarTexto = (ParametroAnimar)=>{ // funcion para dar animacion segun los
         Cursor.classList.add("hero__cursor--active") // si es el ultimo activamos la animacion de cursor parpadenado
        }
 
-    },Texto.length * 50)
+    },Texto.length * 50) */
 
     return new Promise((resolve)=>{ // retornamos una promesa para poder hacer uso del await que utilizamos en el index ademas de que nos sirve para su retroceso
 
